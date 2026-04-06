@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RK Public School | Excellence in Education</title>
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3067/3067254.png" type="image/png">
+    
+    <meta property="og:title" content="RK Public School | Excellence in Education">
+    <meta property="og:description" content="Admissions open for 2026-27. Join RKPS for holistic development, modern infrastructure, and expert faculty.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000">
+    <meta property="og:url" content="https://rkpublicschool.github.io/demotryrkps/">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
 
     <div class="top-bar">
         <div class="top-info">
@@ -39,10 +52,20 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="academics.html">Academics</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="btn-primary">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <div class="news-ticker-container">
+        <div class="ticker-title">Updates</div>
+        <div class="ticker-content">
+            <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+                📢 Admissions Open for Session 2026-27 | 🏆 RKPS students won Gold at the State Science Exhibition | 📅 Parent-Teacher Meeting on 15th April.
+            </marquee>
+        </div>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
@@ -112,19 +135,25 @@
                     <p>First PTM of the academic year will be held this Saturday from 9 AM to 12 PM.</p>
                 </div>
             </div>
-            <div class="notice-card">
-                <div class="date-badge">
-                    <span class="day">22</span>
-                    <span class="month">Apr</span>
-                </div>
-                <div class="notice-info">
-                    <h3>Earth Day Celebration</h3>
-                    <p>Students are requested to bring saplings for the special plantation drive.</p>
-                </div>
-            </div>
         </div>
         <div class="text-center" style="margin-top: 30px;">
-            <a href="#" class="btn-secondary">View All Notices</a>
+            <a href="#" class="btn-secondary" style="color: var(--primary-color); border-color: var(--primary-color);">View All Notices</a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-heading text-center">What Parents Say</h2>
+        <div class="testimonial-container">
+            <div class="testi-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>"The teachers at RKPS are incredibly supportive. My child has shown immense improvement in both academics and confidence since joining."</p>
+                <h4>- Mrs. Sharma, Parent</h4>
+            </div>
+            <div class="testi-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>"Best infrastructure and focus on overall development. The school's communication with parents is excellent. Highly recommended."</p>
+                <h4>- Mr. Verma, Parent</h4>
+            </div>
         </div>
     </section>
 
@@ -140,7 +169,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admission Info</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -154,6 +183,14 @@
             <p>&copy; 2026 RK Public School. All Rights Reserved. | Developed with <i class="fas fa-heart" style="color: red;"></i></p>
         </div>
     </footer>
+
+    <a href="https://wa.me/919876543210?text=Hello%20RK%20Public%20School,%20I%20have%20an%20inquiry%20regarding%20admission." class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
+
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
