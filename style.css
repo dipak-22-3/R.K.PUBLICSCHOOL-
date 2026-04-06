@@ -2,14 +2,14 @@
    1. CSS VARIABLES (Ultra Vibrant & Premium Colors)
 ========================================= */
 :root {
-    --primary-color: #0284C7;    /* Fresh Ocean Blue */
-    --primary-dark: #0369A1;     /* Darker Ocean Blue for background */
-    --secondary-color: #FF9E00;  /* Bright Playful Orange */
-    --accent-color: #E0F2FE;     /* Very light blue for soft backgrounds */
-    --text-dark: #1F2937;
+    --primary-color: #6D28D9;    /* Creative Purple */
+    --primary-dark: #5B21B6;     /* Deep Purple */
+    --secondary-color: #10B981;  /* Emerald Green (Trust & Growth) */
+    --accent-color: #F3E8FF;     /* Soft purple tint */
+    --text-dark: #111827;
     --text-light: #4B5563;
     --bg-white: #FFFFFF;
-    --bg-light: #F8FAFC;
+    --bg-light: #F9FAFB;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
