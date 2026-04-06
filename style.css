@@ -1,25 +1,22 @@
 /* =========================================
-   1. PREMIUM VARIABLES (Skyline Flight Style)
+   1. PREMIUM VARIABLES
 ========================================= */
 :root {
-    --primary-color: #0284C7;    /* Fresh Ocean Blue */
-    --primary-dark: #0369A1;     /* Deep Navy */
-    --secondary-color: #FF9E00;  /* Vibrant Orange */
-    --accent-color: #E0F2FE;     /* Soft Sky Blue */
-    --glass-bg: rgba(255, 255, 255, 0.85); /* For Glassmorphism */
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --primary-color: #0284C7;
+    --primary-dark: #0369A1;
+    --secondary-color: #FF9E00;
+    --accent-color: #E0F2FE;
+    --glass-bg: rgba(255, 255, 255, 0.75); /* Glass Effect */
+    --glass-border: rgba(255, 255, 255, 0.4);
     --text-dark: #1F2937;
     --text-light: #4B5563;
     --bg-white: #FFFFFF;
     --bg-light: #F8FAFC;
-    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =========================================
-   2. BASIC RESET
+   2. BASIC RESET & SKELETON ANIMATION
 ========================================= */
 * {
     margin: 0;
@@ -36,61 +33,31 @@ body {
     overflow-x: hidden;
 }
 
-a { text-decoration: none; transition: var(--transition); }
-
-/* =========================================
-   3. PAGE PRELOADER
-========================================= */
-#preloader {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: var(--bg-white);
-    z-index: 99999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.6s ease;
+/* Skeleton/Shimmer Loading Effect */
+.skeleton {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
 }
 
-.loader {
-    border: 4px solid var(--accent-color);
-    border-top: 4px solid var(--primary-color);
-    border-radius: 50%;
-    width: 50px; height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes shine {
+    to { background-position-x: -200%; }
 }
 
 /* =========================================
-   4. SCROLL REVEAL (Skyline Smoothness)
-========================================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================
-   5. NAVBAR & HAMBURGER (The 100% Fix)
+   3. NAVIGATION (Glassmorphism & Fixed Hamburger)
 ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(10px); /* Glass effect */
-    box-shadow: var(--shadow-sm);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -106,7 +73,6 @@ a { text-decoration: none; transition: var(--transition); }
 .logo img {
     height: 45px;
     width: auto;
-    object-fit: contain;
 }
 
 .logo span {
@@ -123,21 +89,7 @@ a { text-decoration: none; transition: var(--transition); }
     gap: 25px;
 }
 
-.nav-links li a {
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 8px;
-}
-
-.nav-links li a:hover, 
-.nav-links li a.active {
-    color: var(--primary-color);
-    background: var(--accent-color);
-}
-
-/* Hamburger UI */
+/* Hamburger UI Fix */
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -155,11 +107,11 @@ a { text-decoration: none; transition: var(--transition); }
 }
 
 /* =========================================
-   6. HERO SECTION
+   4. HERO SECTION (Gradient Text)
 ========================================= */
 .hero {
-    height: 85vh;
-    background: linear-gradient(rgba(3, 105, 161, 0.75), rgba(3, 105, 161, 0.85)), 
+    height: 80vh;
+    background: linear-gradient(rgba(3, 105, 161, 0.7), rgba(3, 105, 161, 0.8)), 
                 url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200') center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -169,92 +121,97 @@ a { text-decoration: none; transition: var(--transition); }
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    color: var(--bg-white);
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font */
+    background: linear-gradient(to bottom, #ffffff, #FF9E00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 800;
     margin-bottom: 20px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
     font-size: 1.4rem;
-    color: var(--secondary-color);
-    font-weight: 600;
+    color: #fff;
+    font-weight: 500;
     margin-bottom: 35px;
 }
 
 /* =========================================
-   7. HIGHLIGHTS GRID (Fixed Clashing)
+   5. HIGHLIGHTS (Floating Icons & Glass Cards)
 ========================================= */
 .highlights {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     padding: 40px 5%;
-    margin-top: -60px; /* Overlap */
+    margin-top: -60px;
     position: relative;
     z-index: 10;
-    flex-wrap: wrap; /* Fixes overflow */
+    flex-wrap: wrap; /* Grid Fix */
 }
 
 .highlight-box {
-    background-color: var(--bg-white);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
     padding: 40px 25px;
     border-radius: 20px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     text-align: center;
     flex: 1;
-    min-width: 280px; /* Important for mobile */
+    min-width: 300px; /* Mobile width fix */
     max-width: 350px;
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
-    border: 1px solid var(--accent-color);
 }
 
 .highlight-box:hover {
-    transform: translateY(-12px) scale(1.02);
-    border-bottom: 5px solid var(--secondary-color);
+    transform: translateY(-15px);
+    background: var(--bg-white);
 }
 
+/* Floating Animation for Icons */
 .highlight-box i {
     font-size: 50px;
     color: var(--secondary-color);
     margin-bottom: 20px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* =========================================
-   8. ADMISSION TIMELINE (Skyline Clean View)
+   6. ADMISSIONS TIMELINE (Mobile Fix)
 ========================================= */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
 .timeline-step {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 40px;
     position: relative;
 }
 
 .step-content {
     background: var(--bg-light);
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
     width: 100%;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border-left: 6px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.step-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* =========================================
-   9. MOBILE RESPONSIVENESS (The Final Fix)
+   7. MOBILE RESPONSIVENESS (Hamburger Fix)
 ========================================= */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 5%;
-    }
-
     .menu-toggle {
         display: block;
     }
@@ -262,7 +219,7 @@ a { text-decoration: none; transition: var(--transition); }
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* Hide off-screen */
+        right: -100%;
         width: 80%;
         height: 100vh;
         background: var(--bg-white);
@@ -273,14 +230,9 @@ a { text-decoration: none; transition: var(--transition); }
     }
 
     .nav-links.active {
-        right: 0; /* Slide in */
+        right: 0;
     }
 
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-
-    /* Grid Fix */
     .highlights {
         margin-top: 20px;
         flex-direction: column;
@@ -291,38 +243,29 @@ a { text-decoration: none; transition: var(--transition); }
         width: 100%;
     }
 
-    /* Timeline Fix */
-    .timeline-step {
-        flex-direction: column;
-    }
+    /* Timeline Mobile View */
+    .timeline::before { left: 10px; }
+    .timeline-step { flex-direction: column; padding-left: 20px; }
 }
 
 /* =========================================
-   10. FLOATING ELEMENTS
+   8. FLOATING BUTTONS
 ========================================= */
 .float-wa {
-    position: fixed;
-    bottom: 30px; left: 30px;
+    position: fixed; bottom: 30px; left: 30px;
     width: 60px; height: 60px;
-    background: #25d366;
-    color: white;
+    background: #25d366; color: #fff;
     border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
-    font-size: 30px;
-    box-shadow: var(--shadow-lg);
-    z-index: 1000;
+    font-size: 32px; z-index: 1000;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
 }
 
 #backToTopBtn {
-    position: fixed;
-    bottom: 30px; right: 30px;
+    position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    border: none;
-    font-size: 20px;
-    display: none;
-    z-index: 1000;
-    box-shadow: var(--shadow-lg);
+    background: var(--primary-color); color: #fff;
+    border-radius: 50%; border: none;
+    display: none; z-index: 1000;
+    box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
 }
