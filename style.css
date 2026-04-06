@@ -400,3 +400,9 @@ footer { background-color: var(--primary-color); color: var(--bg-white); padding
     .my-float { margin-top: 13px; }
     #backToTopBtn { bottom: 20px; right: 20px; padding: 12px; font-size: 16px; }
 }
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-light); }
+::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary-color); }
+
