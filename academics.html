@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics | RK Public School</title>
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3067/3067254.png" type="image/png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
     
     <style>
         /* Academics Hero Section */
         .page-hero-acad {
             height: 40vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1200') center/cover;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,11 +24,25 @@
             color: var(--bg-white);
         }
         .page-hero-acad h1 { font-size: 3rem; color: var(--secondary-color); }
+        .page-hero-acad p { font-size: 1.1rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;}
+
+        /* Intro Pedagogy Section */
+        .pedagogy-section {
+            padding: 60px 5% 20px;
+            text-align: center;
+            background-color: var(--bg-white);
+        }
+        .pedagogy-text {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
 
         /* Pro Feature 1: Tabbed Interface */
         .curriculum-section {
-            padding: 80px 5%;
-            background-color: var(--bg-light);
+            padding: 40px 5% 80px;
+            background-color: var(--bg-white);
         }
         
         .tab-buttons {
@@ -36,10 +54,10 @@
         }
 
         .tab-btn {
-            background-color: var(--bg-white);
+            background-color: var(--bg-light);
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 12px 30px;
+            border: 2px solid var(--accent-color);
+            padding: 12px 35px;
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 30px;
@@ -50,21 +68,23 @@
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--primary-color);
             color: var(--secondary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(10, 25, 47, 0.2);
         }
 
         /* Tab Content Area */
         .tab-content {
-            display: none; /* Hidden by default */
-            background-color: var(--bg-white);
+            display: none; 
+            background-color: var(--bg-light);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             animation: fadeIn 0.5s ease-in-out;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .tab-content.active {
-            display: block; /* Show active tab */
-        }
+        .tab-content.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -80,22 +100,48 @@
             padding-bottom: 5px;
         }
 
-        .tab-content p { color: var(--text-light); margin-bottom: 20px; }
+        .tab-content p { color: var(--text-light); margin-bottom: 20px; font-size: 1.05rem; }
+        .tab-content h4 { color: var(--primary-color); margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem;}
         
         .subject-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .tag {
-            background-color: var(--accent-color);
+            background-color: var(--bg-white);
             color: var(--primary-color);
-            padding: 8px 15px;
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--accent-color);
+        }
+
+        .tag-highlight {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+        }
+
+        .feature-list-acad {
+            list-style: none;
+            padding-left: 0;
+        }
+        .feature-list-acad li {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 25px;
+        }
+        .feature-list-acad li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #10B981; /* Green tick */
         }
 
         /* Pro Feature 2: Smart Scrollable Tables */
@@ -105,21 +151,24 @@
         }
 
         .table-container {
-            overflow-x: auto; /* Makes table scrollable horizontally on mobile */
+            overflow-x: auto; 
             margin-top: 30px;
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
             border-radius: 8px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .smart-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px; /* Forces scroll on small screens */
+            min-width: 600px; 
             background-color: var(--bg-white);
         }
 
         .smart-table th, .smart-table td {
-            padding: 15px;
+            padding: 15px 20px;
             text-align: left;
             border-bottom: 1px solid var(--accent-color);
         }
@@ -135,12 +184,16 @@
 
         @media (max-width: 768px) {
             .page-hero-acad h1 { font-size: 2.2rem; }
-            .tab-btn { width: 100%; text-align: center; } /* Full width buttons on mobile */
-            .tab-content { padding: 20px; }
+            .tab-btn { width: 100%; text-align: center; } 
+            .tab-content { padding: 25px 15px; }
         }
     </style>
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
 
     <header class="navbar">
         <div class="logo"><h1>RKPS</h1></div>
@@ -153,6 +206,7 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="academics.html" class="active">Academics</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="btn-primary">Contact</a></li>
             </ul>
         </nav>
@@ -161,95 +215,128 @@
     <section class="page-hero-acad">
         <div>
             <h1>Academic Programs</h1>
-            <p>A comprehensive curriculum designed for 21st-century learners.</p>
+            <p>Building a strong, stress-free foundation for young minds from Nursery to Class IV.</p>
         </div>
     </section>
 
-    <section class="curriculum-section">
-        <h2 class="section-heading text-center">Our Curriculum Structure</h2>
-        <p class="text-center" style="margin-bottom: 40px; color: var(--text-light);">Select a wing below to explore subjects and teaching methodologies.</p>
+    <section class="pedagogy-section">
+        <h2 class="section-heading text-center">Our Teaching Philosophy</h2>
+        <p class="pedagogy-text">At RK Public School, we believe that early childhood is the most critical phase for cognitive and emotional development. Following modern educational guidelines, our curriculum for <strong>Nursery to Class IV</strong> is designed to be highly interactive, completely free of rote-learning, and deeply focused on foundational literacy and numeracy.</p>
+    </section>
 
+    <section class="curriculum-section">
+        
         <div class="tab-buttons">
             <button class="tab-btn active" onclick="openTab(event, 'pre-primary')">Pre-Primary (Nursery - UKG)</button>
-            <button class="tab-btn" onclick="openTab(event, 'primary')">Primary (I - V)</button>
-            <button class="tab-btn" onclick="openTab(event, 'secondary')">Secondary (VI - X)</button>
+            <button class="tab-btn" onclick="openTab(event, 'primary')">Primary (Class I - IV)</button>
         </div>
 
         <div id="pre-primary" class="tab-content active">
             <h3>Pre-Primary Wing</h3>
-            <p>Our early childhood program focuses on play-way methods, sensory motor skills, and foundational learning. We provide a nurturing environment where little ones learn through exploration and creative activities.</p>
+            <p>Our Pre-Primary curriculum is deeply rooted in the "Play-Way" and Montessori methodologies. We understand that little kids learn best when they are happy, active, and exploring their surroundings. Our vibrant classrooms and caring teachers ensure a home-away-from-home environment.</p>
+            
             <h4>Key Focus Areas:</h4>
             <div class="subject-tags">
-                <span class="tag">Alphabet & Phonics</span>
-                <span class="tag">Basic Numeracy</span>
-                <span class="tag">Art & Craft</span>
-                <span class="tag">Rhymes & Storytelling</span>
-                <span class="tag">Motor Skills</span>
+                <span class="tag tag-highlight">Cognitive Development</span>
+                <span class="tag tag-highlight">Gross & Fine Motor Skills</span>
+                <span class="tag tag-highlight">Sensory Learning</span>
+                <span class="tag tag-highlight">Social Etiquettes</span>
             </div>
+
+            <h4>Core Learning Topics:</h4>
+            <div class="subject-tags">
+                <span class="tag">Phonics & Alphabets</span>
+                <span class="tag">Basic Numeracy (Counting & Shapes)</span>
+                <span class="tag">Rhymes & Storytelling</span>
+                <span class="tag">Colors & Patterns</span>
+            </div>
+
+            <h4>Daily Activities:</h4>
+            <ul class="feature-list-acad">
+                <li><i class="fas fa-check-circle"></i> <strong>Art & Craft:</strong> Clay modeling, coloring, and paper crafts to boost creativity.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Circle Time:</strong> Interactive sessions for language development and confidence building.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Free Play:</strong> Supervised playtime in our safe indoor and outdoor activity areas.</li>
+            </ul>
         </div>
 
         <div id="primary" class="tab-content">
             <h3>Primary Wing</h3>
-            <p>The primary years focus on building a strong academic foundation while encouraging curiosity. The curriculum is interactive and integrates technology to make learning engaging.</p>
+            <p>As students step into Class I to IV, we gently transition them into structured learning while maintaining a stress-free environment. Heavy school bags and rote memorization are strictly discouraged. We focus on conceptual clarity, spoken English, and interactive learning through Smart Classes.</p>
+            
             <h4>Core Subjects:</h4>
             <div class="subject-tags">
-                <span class="tag">English</span>
-                <span class="tag">Hindi</span>
-                <span class="tag">Mathematics</span>
-                <span class="tag">Environmental Science (EVS)</span>
-                <span class="tag">Computer Basics</span>
-                <span class="tag">Value Education</span>
+                <span class="tag tag-highlight">English Language</span>
+                <span class="tag tag-highlight">Hindi (2nd Language)</span>
+                <span class="tag tag-highlight">Mathematics</span>
+                <span class="tag tag-highlight">Environmental Studies (EVS)</span>
             </div>
-        </div>
 
-        <div id="secondary" class="tab-content">
-            <h3>Secondary Wing</h3>
-            <p>Preparing students for higher academic challenges. The secondary curriculum strictly follows the board guidelines with a focus on practical experiments, analytical thinking, and career readiness.</p>
-            <h4>Core Subjects:</h4>
+            <h4>Co-Curricular & Skill Subjects:</h4>
             <div class="subject-tags">
-                <span class="tag">English Language & Literature</span>
-                <span class="tag">Mathematics (Standard/Basic)</span>
-                <span class="tag">Science (Physics, Chemistry, Bio)</span>
-                <span class="tag">Social Science (His, Geo, Civics)</span>
-                <span class="tag">Information Technology</span>
+                <span class="tag">Computer Basics / IT</span>
+                <span class="tag">General Knowledge (GK)</span>
+                <span class="tag">Moral Science / Value Education</span>
+                <span class="tag">Art, Music & Dance</span>
+                <span class="tag">Physical Education (PE)</span>
             </div>
+
+            <h4>Evaluation & Assessment:</h4>
+            <ul class="feature-list-acad">
+                <li><i class="fas fa-check-circle"></i> <strong>No Stress Exams:</strong> We follow Continuous and Comprehensive Evaluation (CCE) for a fear-free testing environment.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Interactive Tests:</strong> Assessments via projects, oral quizzes, and smart-board activities rather than just pen-and-paper.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Spoken English Focus:</strong> Special emphasis on conversational English inside the campus.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="highlights" style="background-color: var(--bg-light); margin-top: 0; padding-top: 20px;">
+        <h2 class="section-heading text-center" style="width: 100%; margin-bottom: 40px;">Learning Beyond Classrooms</h2>
+        <div class="highlight-box" style="border-bottom: 4px solid var(--secondary-color);">
+            <i class="fas fa-tv"></i>
+            <h3>Smart Classrooms</h3>
+            <p>Visual learning through animated modules to make complex topics easy and fun for children.</p>
+        </div>
+        <div class="highlight-box" style="border-bottom: 4px solid var(--secondary-color);">
+            <i class="fas fa-puzzle-piece"></i>
+            <h3>Activity Room</h3>
+            <p>A dedicated safe space filled with educational toys, puzzles, and building blocks.</p>
+        </div>
+        <div class="highlight-box" style="border-bottom: 4px solid var(--secondary-color);">
+            <i class="fas fa-book"></i>
+            <h3>Kid's Library</h3>
+            <p>A colorful collection of picture books and fairy tales to inculcate reading habits early on.</p>
         </div>
     </section>
 
     <section class="schedule-section">
         <h2 class="section-heading text-center">School Timings & Schedule</h2>
+        <p class="text-center" style="color: var(--text-light); margin-bottom: 20px;">Please ensure students arrive 10 minutes prior to the reporting time.</p>
         
         <div class="table-container">
             <table class="smart-table">
                 <thead>
                     <tr>
-                        <th>Wing / Department</th>
-                        <th>Arrival Time</th>
+                        <th>Wing / Class</th>
+                        <th>Reporting Time</th>
                         <th>Dispersal Time</th>
                         <th>Working Days</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Pre-Primary (Nur - UKG)</td>
+                        <td><strong>Pre-Primary</strong> (Nursery, LKG, UKG)</td>
                         <td>08:30 AM</td>
                         <td>12:30 PM</td>
                         <td>Monday to Friday</td>
                     </tr>
                     <tr>
-                        <td>Primary (Class I - V)</td>
+                        <td><strong>Primary</strong> (Class I to IV)</td>
                         <td>08:00 AM</td>
                         <td>01:30 PM</td>
-                        <td>Monday to Saturday</td>
+                        <td>Monday to Saturday<br><small>(2nd & 4th Saturdays off)</small></td>
                     </tr>
                     <tr>
-                        <td>Secondary (Class VI - X)</td>
-                        <td>07:30 AM</td>
-                        <td>02:00 PM</td>
-                        <td>Monday to Saturday</td>
-                    </tr>
-                    <tr>
-                        <td>School Office / Admin</td>
+                        <td><strong>School Office / Admin</strong></td>
                         <td>08:00 AM</td>
                         <td>03:00 PM</td>
                         <td>Monday to Saturday</td>
@@ -271,7 +358,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admission Info</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -282,27 +369,29 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
+            <p>&copy; 2026 RK Public School. All Rights Reserved. | Developed with <i class="fas fa-heart" style="color: red;"></i></p>
         </div>
     </footer>
+
+    <a href="https://wa.me/919876543210" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 
     <script>
         function openTab(evt, tabName) {
-            // Get all elements with class="tab-content" and hide them
             const tabcontent = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active");
             }
-
-            // Get all elements with class="tab-btn" and remove the class "active"
             const tablinks = document.getElementsByClassName("tab-btn");
             for (let i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
