@@ -1,52 +1,52 @@
 /* =========================================
-   RK Public School - Interactivity Script
+   RK Public School - Master Script
 ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle Logic
+    
+    // 1. Page Preloader Logic
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Halka sa delay taaki animation properly dikhe
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500); // Fade out transition ka time
+        }, 800); 
+    }
+
+    // 2. Mobile Menu Toggle Logic
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
 
     if (mobileMenu && navLinks) {
         mobileMenu.addEventListener('click', () => {
-            // Toggle 'active' class on menu button (to animate into an 'X')
             mobileMenu.classList.toggle('active');
-            // Toggle 'active' class on nav links (to slide menu in/out)
             navLinks.classList.toggle('active');
         });
 
-        // 2. Auto-close Menu when a link is clicked
+        // Auto-close Menu when a link is clicked
         const links = document.querySelectorAll('.nav-links li a');
         links.forEach(link => {
             link.addEventListener('click', () => {
-                // Remove 'active' class to close the menu
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
-    }
 
-    // 3. Smooth Scrolling Logic for any internal page links (e.g., #section)
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    smoothScrollLinks.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            
-            // Only apply if the link is an actual ID and not just "#"
-            if (targetId !== "#" && targetId !== "") {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Pro Feature: Click outside to close the mobile menu
+        document.addEventListener('click', (event) => {
+            if (navLinks.classList.contains('active')) {
+                if (!navLinks.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenu.classList.remove('active');
                 }
             }
         });
-    });
+    }
 
-    // 4. Subtle Navbar Shadow on Scroll (Peak Detailing for UI)
+    // 3. Subtle Navbar Shadow on Scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -55,4 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
         }
     });
+
+    // 4. Back to Top Button Visibility Logic
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
+    }
 });
+
+// 5. Back to Top Smooth Scroll Function
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
