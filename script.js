@@ -4,59 +4,103 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // =========================================
     // 1. PAGE PRELOADER LOGIC
-    // =========================================
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Halka sa delay taaki animation properly dikhe (800ms)
         setTimeout(() => {
             preloader.style.opacity = '0';
-            // Fade out hone ke baad display none kar do (600ms transition time)
-            setTimeout(() => { 
-                preloader.style.display = 'none'; 
-            }, 600); 
+            setTimeout(() => { preloader.style.display = 'none'; }, 600); 
         }, 800); 
     }
 
-    // =========================================
-    // 2. SCROLL REVEAL ANIMATION LOGIC
-    // =========================================
-    // Yeh website ko "Live" feel deta hai jab user scroll karta hai
+    // 2. SCROLL REVEAL ANIMATION
     const revealElements = document.querySelectorAll('.reveal');
-    
     const revealFunction = () => {
         const windowHeight = window.innerHeight;
-        const revealPoint = 100; // Jab element 100px visible ho jaye tab trigger hoga
+        const revealPoint = 100; 
 
         revealElements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            
             if (elementTop < windowHeight - revealPoint) {
                 element.classList.add('active');
             }
         });
     }
-    
-    // Scroll karne par animation check karo
     window.addEventListener('scroll', revealFunction);
-    // Page load hote hi ek baar check karo (taaki upar ke elements dikh jayein)
     revealFunction();
 
-    // =========================================
-    // 3. MOBILE MENU (HAMBURGER) LOGIC
-    // =========================================
+    // 3. TYPEWRITER EFFECT (Typed.js)
+    if(document.getElementById('typed-text')){
+        new Typed('#typed-text', {
+            strings: ["Joyful Early Learning.", "Stress-Free Education.", "Building Strong Fundamentals.", "Play, Learn, and Grow."],
+            typeSpeed: 60,
+            backSpeed: 30,
+            backDelay: 1500,
+            loop: true
+        });
+    }
+
+    // 4. BUTTON RIPPLE EFFECT (Material Design)
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            let x = e.clientX - e.target.getBoundingClientRect().left;
+            let y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            let ripples = document.createElement('span');
+            ripples.style.left = x + 'px';
+            ripples.style.top = y + 'px';
+            ripples.classList.add('ripple');
+            this.appendChild(ripples);
+            
+            setTimeout(() => { ripples.remove() }, 600);
+        });
+    });
+
+    // 5. NUMBER COUNTER ANIMATION (For Stats Section)
+    const counters = document.querySelectorAll('.counter');
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 200; // Speed of counting
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 15);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Use Intersection Observer to run counter ONLY when scrolled into view
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(statsSection);
+    }
+
+    // 6. MOBILE MENU LOGIC
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
 
     if (mobileMenu && navLinks) {
-        // Hamburger icon par click karne par menu kholna/band karna
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // Menu ke andar kisi link par click karne par menu band kar dena
         const links = document.querySelectorAll('.nav-links li a');
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -65,10 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // PRO FEATURE: Menu ke bahar click karne par menu band ho jaye
         document.addEventListener('click', (event) => {
             if (navLinks.classList.contains('active')) {
-                // Check karo ki click menu ya hamburger button ke bahar hua hai
                 if (!navLinks.contains(event.target) && !mobileMenu.contains(event.target)) {
                     navLinks.classList.remove('active');
                     mobileMenu.classList.remove('active');
@@ -77,21 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================================
-    // 4. NAVBAR SHADOW & BACK-TO-TOP BUTTON LOGIC
-    // =========================================
+    // 7. NAVBAR SHADOW & BACK-TO-TOP LOGIC
     const navbar = document.querySelector('.navbar');
     const backToTopBtn = document.getElementById("backToTopBtn");
     
     window.addEventListener('scroll', () => {
-        // Thoda sa scroll karne par Navbar ke niche shadow add karna
         if (window.scrollY > 50) {
             if(navbar) navbar.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
         } else {
             if(navbar) navbar.style.boxShadow = "none";
         }
 
-        // Back to Top button ko 300px scroll ke baad dikhana
         if (backToTopBtn) {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 backToTopBtn.style.display = "block";
@@ -102,13 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// =========================================
-// 5. BACK TO TOP FUNCTION
-// =========================================
-// Button par click karne par smoothly upar jana
 function topFunction() {
-    window.scrollTo({ 
-        top: 0, 
-        behavior: 'smooth' 
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
