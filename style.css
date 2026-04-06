@@ -2,12 +2,12 @@
    1. CSS VARIABLES (Ultra Vibrant & Premium Colors)
 ========================================= */
 :root {
-    --primary-color: #1D4ED8;    /* Bright Royal Blue - Bahut attractive lagega */
-    --primary-dark: #1E3A8A;     /* Darker shade for gradients */
-    --secondary-color: #F59E0B;  /* Bright Amber/Yellow */
-    --accent-color: #EFF6FF;     /* Very Light Blue for backgrounds */
-    --text-dark: #111827;        /* Sharp Black for headings */
-    --text-light: #4B5563;       /* Soft Gray for paragraphs */
+    --primary-color: #0284C7;    /* Fresh Ocean Blue */
+    --primary-dark: #0369A1;     /* Darker Ocean Blue for background */
+    --secondary-color: #FF9E00;  /* Bright Playful Orange */
+    --accent-color: #E0F2FE;     /* Very light blue for soft backgrounds */
+    --text-dark: #1F2937;
+    --text-light: #4B5563;
     --bg-white: #FFFFFF;
     --bg-light: #F8FAFC;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
