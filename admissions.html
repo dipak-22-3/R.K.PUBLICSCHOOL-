@@ -4,195 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admissions | RK Public School</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Admissions Hero Section */
-        .page-hero-adm {
-            height: 40vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--bg-white);
-        }
+        .page-hero-adm { height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('[https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200](https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200)') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--bg-white); }
         .page-hero-adm h1 { font-size: 3rem; color: var(--secondary-color); }
-        .page-hero-adm p { font-size: 1.1rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-        /* Pro Feature 1: Admission Process Timeline */
-        .process-section {
-            padding: 80px 5%;
-            background-color: var(--bg-white);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 40px auto 0;
-            padding-left: 30px; /* Space for the line on mobile */
-        }
-
-        /* The vertical line */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 15px; /* Center of the circle */
-            height: 100%;
-            width: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        .timeline-step {
-            position: relative;
-            margin-bottom: 40px;
-            padding-left: 40px; /* Space between line and text */
-        }
-
-        .timeline-step:last-child { margin-bottom: 0; }
-
-        /* The Circles */
-        .step-icon {
-            position: absolute;
-            top: 0;
-            left: -15px; /* Pull left to center on the line */
-            width: 40px;
-            height: 40px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 0 0 0 5px var(--bg-white);
-            z-index: 1;
-        }
-
-        .step-content {
-            background-color: var(--bg-light);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-top: 3px solid var(--primary-color);
-        }
-
+        .process-section { padding: 80px 5%; background-color: var(--bg-white); }
+        .timeline { position: relative; max-width: 800px; margin: 40px auto 0; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 15px; height: 100%; width: 4px; background-color: var(--accent-color); border-radius: 2px; }
+        .timeline-step { position: relative; margin-bottom: 40px; padding-left: 40px; }
+        .step-icon { position: absolute; top: 0; left: -15px; width: 40px; height: 40px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; box-shadow: 0 0 0 5px var(--bg-white); z-index: 1; }
+        .step-content { background-color: var(--bg-light); padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-top: 3px solid var(--primary-color); }
         .step-content h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.3rem; }
-        .step-content p { color: var(--text-light); }
-
-        /* Document List Styling */
-        .doc-list {
-            list-style: none;
-            margin-top: 15px;
-            padding-left: 0;
-        }
+        .doc-list { list-style: none; margin-top: 15px; padding-left: 0; }
         .doc-list li { margin-bottom: 8px; color: var(--text-dark); }
-        .doc-list i { color: #10B981; margin-right: 10px; } /* Green checkmark */
-
-        /* Pro Feature 2: FAQ Accordion */
-        .faq-section {
-            padding: 80px 5%;
-            background-color: var(--bg-light);
-        }
-
-        .accordion-container {
-            max-width: 800px;
-            margin: 40px auto 0;
-        }
-
-        .accordion-item {
-            background-color: var(--bg-white);
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .accordion-btn {
-            width: 100%;
-            text-align: left;
-            padding: 20px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .accordion-btn:hover { color: var(--secondary-color); }
-
-        .accordion-btn i {
-            transition: transform 0.3s ease;
-            color: var(--secondary-color);
-        }
-
-        /* Rotate icon when active */
+        .doc-list i { color: #10B981; margin-right: 10px; }
+        .faq-section { padding: 80px 5%; background-color: var(--bg-light); }
+        .accordion-container { max-width: 800px; margin: 40px auto 0; }
+        .accordion-item { background-color: var(--bg-white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
+        .accordion-btn { width: 100%; text-align: left; padding: 20px; font-size: 1.1rem; font-weight: 500; color: var(--primary-color); background-color: transparent; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
         .accordion-btn.active i { transform: rotate(180deg); }
-
-        .accordion-content {
-            max-height: 0; /* Hidden by default */
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out;
-            background-color: var(--bg-white);
-        }
-
-        .accordion-text {
-            padding: 0 20px 20px;
-            color: var(--text-light);
-            border-top: 1px solid var(--accent-color);
-            margin-top: 10px;
-            padding-top: 15px;
-        }
-
-        /* Call to Action Banner */
-        .cta-banner {
-            background-color: var(--primary-color);
-            color: var(--bg-white);
-            text-align: center;
-            padding: 50px 5%;
-        }
-        .cta-banner h2 { color: var(--secondary-color); margin-bottom: 15px; }
-
-        @media (max-width: 768px) {
-            .page-hero-adm h1 { font-size: 2.2rem; }
-            .timeline::before { left: 10px; }
-            .step-icon { left: -10px; width: 30px; height: 30px; font-size: 1rem; }
-            .timeline-step { padding-left: 30px; }
-        }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background-color: var(--bg-white); }
+        .accordion-text { padding: 0 20px 20px; color: var(--text-light); border-top: 1px solid var(--accent-color); margin-top: 10px; padding-top: 15px; }
+        .cta-banner { background-color: var(--primary-color); color: var(--bg-white); text-align: center; padding: 50px 5%; }
+        @media (max-width: 768px) { .page-hero-adm h1 { font-size: 2.2rem; } .timeline::before { left: 10px; } .step-icon { left: -10px; width: 30px; height: 30px; font-size: 1rem; } .timeline-step { padding-left: 30px; } }
     </style>
 </head>
 <body>
-        <header class="navbar">
+
+    <header class="navbar">
         <a href="index.html" class="logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/3067/3067254.png" alt="RKPS Logo"> 
-            <span style="font-weight: 800; font-size: 24px; color: var(--primary-color); margin-left: 10px;">RKPS</span>
+            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
+            <span>RKPS</span>
         </a>
-        
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
-
         <nav>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html"class="active">Admissions</a></li>
-                <li><a href="gallery.html">Gallery</a></li> <li><a href="contact.html" class="btn-primary" style="color:var(--primary-color)!important;">Contact</a></li>
+                <li><a href="admissions.html" class="active">Admissions</a></li>
+                <li><a href="gallery.html">Gallery</a></li> 
+                <li><a href="contact.html" class="btn-primary" style="color:var(--bg-white)!important;">Contact</a></li>
             </ul>
         </nav>
     </header>
-
 
     <section class="page-hero-adm">
         <div>
@@ -201,9 +62,8 @@
         </div>
     </section>
 
-    <section class="process-section">
+    <section class="process-section reveal">
         <h2 class="section-heading text-center">Step-by-Step Admission Process</h2>
-        
         <div class="timeline">
             <div class="timeline-step">
                 <div class="step-icon">1</div>
@@ -212,20 +72,17 @@
                     <p>Parents can collect the registration form from the school reception or fill out the initial enquiry form online. The form must be completely filled with accurate details.</p>
                 </div>
             </div>
-
             <div class="timeline-step">
                 <div class="step-icon">2</div>
                 <div class="step-content">
                     <h3>Interactive Session / Test</h3>
-                    <p>Based on the class applied for, an informal interactive session (for pre-primary) or a basic written evaluation (for higher classes) will be scheduled to understand the child's academic level.</p>
+                    <p>Based on the class applied for, an informal interactive session will be scheduled to understand the child's academic level.</p>
                 </div>
             </div>
-
             <div class="timeline-step">
                 <div class="step-icon">3</div>
                 <div class="step-content">
                     <h3>Document Verification</h3>
-                    <p>Shortlisted candidates will be called for document verification. Please keep the following ready:</p>
                     <ul class="doc-list">
                         <li><i class="fas fa-check-circle"></i> Birth Certificate of the child</li>
                         <li><i class="fas fa-check-circle"></i> Aadhaar Card (Parents & Child)</li>
@@ -234,61 +91,29 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="timeline-step">
-                <div class="step-icon"><i class="fas fa-check"></i></div>
-                <div class="step-content">
-                    <h3>Fee Submission & Enrollment</h3>
-                    <p>Once approved by the Principal, parents can submit the admission fee at the accounts office to confirm the seat. A welcome kit and uniform details will be provided.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section class="faq-section">
+    <section class="faq-section reveal">
         <h2 class="section-heading text-center">Frequently Asked Questions</h2>
-        
         <div class="accordion-container">
             <div class="accordion-item">
                 <button class="accordion-btn">What is the age criteria for Nursery admission? <i class="fas fa-chevron-down"></i></button>
                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        The child must be 3 years old as of 31st March of the academic year for which admission is sought.
-                    </div>
+                    <div class="accordion-text">The child must be 3 years old as of 31st March of the academic year for which admission is sought.</div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <button class="accordion-btn">Does the school provide transport facilities? <i class="fas fa-chevron-down"></i></button>
                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        Yes, we provide safe and secure bus facilities covering a radius of 15 kms around the school. The buses are equipped with GPS tracking and female attendants.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-btn">What is the student-teacher ratio? <i class="fas fa-chevron-down"></i></button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We maintain a healthy student-teacher ratio of 25:1 in pre-primary classes and 35:1 in higher classes to ensure individual attention for every child.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-btn">Are there any scholarships available? <i class="fas fa-chevron-down"></i></button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Yes, we offer merit-based scholarships for outstanding students in Class XI. We also have concessions for siblings studying in the same school.
-                    </div>
+                    <div class="accordion-text">Yes, we provide safe and secure bus facilities covering a radius of 15 kms around the school.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="cta-banner">
-        <h2>Ready to join RK Public School?</h2>
+        <h2 style="color: var(--secondary-color); margin-bottom: 15px;">Ready to join RK Public School?</h2>
         <p style="margin-bottom: 20px;">Seats are limited. Reach out to us today to start the admission process.</p>
         <a href="contact.html" class="btn-primary" style="background-color: var(--bg-white); color: var(--primary-color) !important;">Contact Us Now</a>
     </section>
@@ -297,13 +122,12 @@
         <div class="footer-container">
             <div class="footer-col">
                 <h3>RK Public School</h3>
-                <p>Building character and intellect since inception. A place where every child matters.</p>
+                <p>Building character and intellect since inception.</p>
             </div>
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admission Info</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -312,7 +136,6 @@
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-map-marker-alt"></i> School Campus, Main Road, City</p>
                 <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@rkps.edu.in</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -321,25 +144,16 @@
     </footer>
 
     <script src="script.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const accordions = document.querySelectorAll('.accordion-btn');
-
             accordions.forEach(acc => {
                 acc.addEventListener('click', function() {
-                    // Toggle the active class on the button (rotates the icon)
                     this.classList.toggle('active');
-
-                    // Select the next element (the content div)
                     const content = this.nextElementSibling;
-
-                    // Toggle max-height for smooth slide down/up
                     if (content.style.maxHeight) {
-                        // If it's open, close it
                         content.style.maxHeight = null;
                     } else {
-                        // If it's closed, open it to its scrollHeight
                         content.style.maxHeight = content.scrollHeight + "px";
                     }
                 });
