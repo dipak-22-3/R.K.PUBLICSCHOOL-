@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RKPS Portal | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="portal.css">
+</head>
+<body class="login-bg">
+
+    <div class="login-container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Website</a>
+
+        <div class="glass-card">
+            <div class="logo-area">
+                <i class="fas fa-user-graduate gold-icon" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                <h2 class="serif-font">RKPS Portal</h2>
+                <p>Welcome back! Please login to continue.</p>
+            </div>
+
+            <div class="role-toggle">
+                <div class="toggle-bg" id="toggle-bg"></div>
+                <button type="button" class="role-btn" onclick="setRole(0, 'Principal ID')">Principal</button>
+                <button type="button" class="role-btn" onclick="setRole(1, 'Employee ID')">Teacher</button>
+                <button type="button" class="role-btn active" onclick="setRole(2, 'Enrollment ID')">Student</button>
+            </div>
+
+            <div class="alert-banner error" id="loginError">
+                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Try again.
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <input type="text" id="userid" required autocomplete="off">
+                    <label id="userLabel">Enrollment ID</label>
+                    <i class="fas fa-id-card input-icon"></i>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span>SECURE LOGIN</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <a href="#" class="forgot-link">Forgot Password?</a>
+                <p>Don't have an account? <a href="index.html#inquiry">Admission Inquiry</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="portal.js"></script>
+</body>
+</html>
