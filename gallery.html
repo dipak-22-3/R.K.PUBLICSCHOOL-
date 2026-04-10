@@ -3,135 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery | RK Public School</title>
-    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <title>Gallery | RKPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        .page-hero-gallery { height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('[https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200](https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200)') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--bg-white); }
-        .page-hero-gallery h1 { font-size: 3rem; color: var(--secondary-color); }
-        .gallery-filters { text-align: center; padding: 40px 5% 20px; background-color: var(--bg-white); }
-        .filter-btn { background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 8px 20px; margin: 5px; border-radius: 30px; cursor: pointer; font-weight: 600; transition: var(--transition); }
-        .filter-btn.active, .filter-btn:hover { background-color: var(--primary-color); color: var(--bg-white); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px 5% 80px; background-color: var(--bg-white); }
-        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); aspect-ratio: 4/3; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.7); color: var(--bg-white); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        .gallery-overlay i { font-size: 30px; color: var(--secondary-color); margin-bottom: 10px; }
-        .lightbox-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; }
-        .lightbox-modal.active { display: flex; }
-        .lightbox-img { max-width: 90%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.2); animation: zoomIn 0.3s ease; }
-        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: var(--bg-white); font-size: 40px; cursor: pointer; }
-        .lightbox-caption { color: var(--bg-white); margin-top: 15px; font-size: 1.2rem; }
-        @media (max-width: 768px) { .page-hero-gallery h1 { font-size: 2.2rem; } .lightbox-close { top: 10px; right: 20px; } }
+        .page-hero { padding: 80px 20px; background: var(--navy-blue); color: var(--white); text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; }
+        .gallery-item { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 4/3; border: 3px solid var(--gold-light); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
-            <span>RKPS</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-links" id="nav-links">
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-book-reader gold-icon"></i><span>RKPS</span></a>
+        <nav class="desktop-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li> 
-                <li><a href="contact.html" class="btn-primary" style="color:var(--bg-white)!important;">Contact</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn-portal">Portal Login</a></li>
             </ul>
         </nav>
+        <div class="nav-actions">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
-    <section class="page-hero-gallery">
-        <div>
-            <h1>Campus Life</h1>
-            <p>A glimpse into the vibrant life and infrastructure at RK Public School.</p>
-        </div>
+    <section class="page-hero">
+        <h1 class="serif-font gold-text">Campus Life</h1>
+        <p>A glimpse into our world-class infrastructure.</p>
     </section>
 
-    <section class="gallery-filters reveal">
-        <button class="filter-btn active">All Photos</button>
-        <button class="filter-btn">Infrastructure</button>
-        <button class="filter-btn">Events</button>
+    <section class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800" alt="Building"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800" alt="Lab"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800" alt="Class"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800" alt="Sports"></div>
     </section>
-
-    <section class="gallery-grid reveal">
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="[https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800](https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800)" alt="Main School Building">
-            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h3>School Campus</h3></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="[https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800](https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800)" alt="Science Laboratory">
-            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h3>Advanced Labs</h3></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="[https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800](https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800)" alt="Students in Classroom">
-            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h3>Smart Classrooms</h3></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="[https://images.unsplash.com/photo-1511629091441-ee46146481b6?q=80&w=800](https://images.unsplash.com/photo-1511629091441-ee46146481b6?q=80&w=800)" alt="Library">
-            <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h3>Central Library</h3></div>
-        </div>
-    </section>
-
-    <div class="lightbox-modal" id="lightboxModal">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery Full Image">
-        <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>RK Public School</h3>
-                <p>Building character and intellect since inception.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="gallery.html">Photo Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> School Campus, Main Road, City</p>
-                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
-    <script>
-        function openLightbox(element) {
-            const modal = document.getElementById('lightboxModal');
-            document.getElementById('lightboxImg').src = element.querySelector('img').src;
-            document.getElementById('lightboxCaption').innerText = element.querySelector('h3').innerText;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeLightbox() {
-            document.getElementById('lightboxModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        document.getElementById('lightboxModal').addEventListener('click', function(e) {
-            if (e.target !== document.getElementById('lightboxImg')) closeLightbox();
-        });
-    </script>
 </body>
 </html>
