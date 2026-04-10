@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | RKPS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="portal.css">
+    
+    <style>
+        /* Dashboard Specific Custom Styles */
+        body.dashboard-bg {
+            background-color: #F4F7F6;
+            min-height: 100vh;
+            padding-bottom: 80px; /* Space for bottom nav */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Top Header Area */
+        .dash-header {
+            background: linear-gradient(135deg, var(--teal), var(--navy));
+            color: white;
+            padding: 30px 20px 60px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            position: relative;
+        }
+        
+        .dash-header h2 { font-size: 1.5rem; letter-spacing: 1px; margin-top: 10px; }
+        
+        .logout-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .logout-btn:hover { color: var(--gold); }
+
+        /* Student Profile Card (Overlapping header) */
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: -40px 20px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+        .profile-img {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+        }
+        .profile-info h3 { color: var(--navy); margin-bottom: 2px; font-size: 1.2rem; }
+        .profile-info p { color: #666; font-size: 0.85rem; font-weight: 500; }
+        .profile-info .badge {
+            display: inline-block;
+            background: var(--accent-color, #E0F2FE);
+            color: var(--primary-dark, #0369A1);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+
+        /* Main Dashboard Content */
+        .dash-container { padding: 0 20px; }
+        .section-title { font-size: 1.1rem; color: var(--navy); margin-bottom: 15px; font-weight: 600; }
+        
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px; }
+        
+        /* Cards */
+        .dash-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+        .dash-card:hover { transform: translateY(-5px); }
+        .dash-card.dark { background: linear-gradient(135deg, var(--teal), var(--navy)); color: white; border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* Icons inside cards */
+        .dash-card i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
+        .dash-card h4 { font-size: 0.9rem; margin-bottom: 5px; color: var(--navy); }
+        .dash-card.dark h4 { color: white; }
+        .dash-card p { font-size: 0.8rem; color: #888; }
+        .dash-card.dark p { color: #ddd; }
+
+        /* Progress Circle Logic */
+        .progress-circle {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            /* 75% progress simulation */
+            background: conic-gradient(var(--gold) 75%, rgba(255,255,255,0.1) 0);
+            display: flex; justify-content: center; align-items: center;
+            margin: 0 auto 15px;
+        }
+        .progress-inner {
+            width: 74px; height: 74px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            font-weight: bold; font-size: 1.2rem; color: white;
+        }
+
+        /* Notice Area inside Dashboard */
+        .vault-item {
+            background: white; padding: 15px; border-radius: 12px;
+            display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            margin-bottom: 10px; border-left: 4px solid var(--gold);
+        }
+        .vault-item i { font-size: 1.5rem; color: var(--teal); }
+        .vault-item h4 { font-size: 0.95rem; color: var(--navy); }
+
+        /* Mobile Bottom Navigation (App-like feel) */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: white; display: flex; justify-content: space-around;
+            padding: 12px 0; box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        .nav-item {
+            text-align: center; color: #aaa; font-size: 0.75rem;
+            text-decoration: none; display: flex; flex-direction: column; gap: 6px;
+            transition: 0.3s;
+        }
+        .nav-item.active, .nav-item:hover { color: var(--navy); }
+        .nav-item i { font-size: 1.3rem; }
+        .nav-item.active i { color: var(--gold); }
+    </style>
+</head>
+<body class="dashboard-bg">
+
+    <header class="dash-header">
+        <a href="index.html" class="logout-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        <i class="fas fa-book-reader" style="color: var(--gold); font-size: 2.5rem; margin-bottom: 5px;"></i>
+        <h2 class="serif-font">Student Portal</h2>
+    </header>
+
+    <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1595454593629-8446bdfa3754?q=80&w=200" alt="Student Profile" class="profile-img">
+        <div class="profile-info">
+            <h3>Aryan Sharma</h3>
+            <p>Class 3-A | Roll: 14</p>
+            <span class="badge">ID: RKPS202401</span>
+        </div>
+    </div>
+
+    <div class="dash-container">
+        
+        <h3 class="section-title">Daily Progress Hub</h3>
+        
+        <div class="grid-2">
+            <div class="dash-card dark">
+                <h4 class="serif-font">Aaj Kya Seekha?</h4>
+                <div class="progress-circle">
+                    <div class="progress-inner">
+                        75%<br><i class="fas fa-bolt" style="font-size: 0.8rem; margin:0; color:var(--gold);"></i>
+                    </div>
+                </div>
+                <p>Hindi Rhymes & Basic Math</p>
+            </div>
+            
+            <div class="dash-card">
+                <i class="fas fa-brain"></i>
+                <h4 class="serif-font">Dimag Ka Use</h4>
+                <p style="color: var(--teal); font-weight: 600; margin-bottom: 5px;">High Activity</p>
+                <p>Critical Thinking Puzzle Solved</p>
+            </div>
+        </div>
+
+        <h3 class="section-title">My Records (Vault)</h3>
+        
+        <div class="grid-3">
+            <div class="dash-card">
+                <i class="fas fa-file-invoice" style="font-size: 1.5rem; color: var(--teal);"></i>
+                <h4 style="font-size: 0.8rem;">Past Cards</h4>
+            </div>
+            <div class="dash-card">
+                <i class="fas fa-calendar-check" style="font-size: 1.5rem; color: #10B981;"></i>
+                <h4 style="font-size: 0.8rem;">95% Attend</h4>
+            </div>
+            <div class="dash-card">
+                <i class="fas fa-book-open" style="font-size: 1.5rem; color: #F59E0B;"></i>
+                <h4 style="font-size: 0.8rem;">Homework</h4>
+            </div>
+        </div>
+
+        <h3 class="section-title">Recent Updates</h3>
+        
+        <div class="vault-item">
+            <i class="fas fa-bell"></i>
+            <div>
+                <h4>Science Exhibition Model Due</h4>
+                <p style="font-size: 0.8rem; color: #777;">Submit by 25th June, 2026</p>
+            </div>
+        </div>
+        
+        <div class="vault-item" style="border-left-color: var(--teal);">
+            <i class="fas fa-receipt"></i>
+            <div>
+                <h4>Term 1 Fee Receipt Generated</h4>
+                <p style="font-size: 0.8rem; color: #777;">Paid on 10th April, 2026</p>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Progress</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-rupee-sign"></i>
+            <span>Fees</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+</body>
+</html>
