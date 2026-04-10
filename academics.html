@@ -3,185 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics | RK Public School</title>
-    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <title>Academics | RKPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        .page-hero-acad { height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('[https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200](https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200)') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--bg-white); }
-        .page-hero-acad h1 { font-size: 3rem; color: var(--secondary-color); }
-        .page-hero-acad p { font-size: 1.1rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;}
-        .pedagogy-section { padding: 60px 5% 20px; text-align: center; background-color: var(--bg-white); }
-        .pedagogy-text { max-width: 800px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; }
-        .curriculum-section { padding: 40px 5% 80px; background-color: var(--bg-white); }
-        .tab-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
-        .tab-btn { background-color: var(--bg-light); color: var(--primary-color); border: 2px solid var(--accent-color); padding: 12px 35px; font-size: 1.1rem; font-weight: 600; border-radius: 30px; cursor: pointer; transition: var(--transition); }
-        .tab-btn.active, .tab-btn:hover { background-color: var(--primary-color); color: var(--bg-white); border-color: var(--primary-color); box-shadow: 0 4px 10px rgba(10, 25, 47, 0.2); }
-        .tab-content { display: none; background-color: var(--bg-light); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-in-out; max-width: 1000px; margin: 0 auto; }
+        .page-hero { padding: 80px 20px; background: var(--navy-blue); color: var(--white); text-align: center; }
+        .tab-buttons { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap;}
+        .tab-btn { padding: 10px 30px; border: 2px solid var(--gold); background: transparent; color: var(--navy-blue); font-weight: 600; border-radius: 30px; cursor: pointer; }
+        .tab-btn.active { background: var(--gold); color: var(--navy-blue); }
+        .tab-content { display: none; background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 900px; margin: 0 auto 60px; }
         .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .tab-content h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 5px; }
-        .tab-content p { color: var(--text-light); margin-bottom: 20px; font-size: 1.05rem; }
-        .tab-content h4 { color: var(--primary-color); margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem;}
-        .subject-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .tag { background-color: var(--bg-white); color: var(--primary-color); padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--accent-color); }
-        .tag-highlight { background-color: var(--secondary-color); color: var(--primary-color); border: none; }
-        .schedule-section { padding: 60px 5%; background-color: var(--bg-white); }
-        .table-container { overflow-x: auto; margin-top: 30px; border-radius: 8px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .smart-table { width: 100%; border-collapse: collapse; min-width: 600px; background-color: var(--bg-white); }
-        .smart-table th, .smart-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--accent-color); }
-        .smart-table th { background-color: var(--primary-color); color: var(--bg-white); font-weight: 600; }
-        .smart-table tr:nth-child(even) { background-color: var(--bg-light); }
-        @media (max-width: 768px) { .page-hero-acad h1 { font-size: 2.2rem; } .tab-btn { width: 100%; text-align: center; } .tab-content { padding: 25px 15px; } }
+        .smart-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .smart-table th { background: var(--navy-blue); color: var(--gold); padding: 15px; text-align: left; }
+        .smart-table td { padding: 15px; border-bottom: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
-            <span>RKPS</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-links" id="nav-links">
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-book-reader gold-icon"></i><span>RKPS</span></a>
+        <nav class="desktop-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="academics.html" class="active">Academics</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="gallery.html">Gallery</a></li> 
-                <li><a href="contact.html" class="btn-primary" style="color:var(--bg-white)!important;">Contact</a></li>
+                <li><a href="login.html" class="btn-portal">Portal Login</a></li>
             </ul>
         </nav>
+        <div class="nav-actions">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
-    <section class="page-hero-acad">
-        <div>
-            <h1>Academic Programs</h1>
-            <p>Building a strong, stress-free foundation for young minds from Nursery to Class IV.</p>
-        </div>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="academics.html" class="nav-item active">Academics</a></li>
+            <li><a href="admissions.html" class="nav-item">Admissions</a></li>
+            <li><a href="login.html" class="btn-gold" style="display:block; text-align:center;">Portal Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <h1 class="serif-font gold-text">Academic Programs</h1>
+        <p>Stress-free foundation for young minds.</p>
     </section>
 
-    <section class="pedagogy-section reveal">
-        <h2 class="section-heading text-center">Our Teaching Philosophy</h2>
-        <p class="pedagogy-text">At RK Public School, we believe that early childhood is the most critical phase for cognitive and emotional development. Following modern educational guidelines, our curriculum for <strong>Nursery to Class IV</strong> is designed to be highly interactive, completely free of rote-learning, and deeply focused on foundational literacy and numeracy.</p>
-    </section>
-
-    <section class="curriculum-section reveal">
+    <section class="container">
         <div class="tab-buttons">
-            <button class="tab-btn active" onclick="openTab(event, 'pre-primary')">Pre-Primary (Nursery - UKG)</button>
-            <button class="tab-btn" onclick="openTab(event, 'primary')">Primary (Class I - IV)</button>
+            <button class="tab-btn active" onclick="openTab(event, 'pre-primary')">Pre-Primary</button>
+            <button class="tab-btn" onclick="openTab(event, 'primary')">Primary (I-IV)</button>
         </div>
 
         <div id="pre-primary" class="tab-content active">
-            <h3>Pre-Primary Wing</h3>
-            <p>Our Pre-Primary curriculum is deeply rooted in the "Play-Way" and Montessori methodologies. We understand that little kids learn best when they are happy, active, and exploring their surroundings.</p>
-            
-            <h4>Key Focus Areas:</h4>
-            <div class="subject-tags">
-                <span class="tag tag-highlight">Cognitive Development</span>
-                <span class="tag tag-highlight">Sensory Learning</span>
-                <span class="tag tag-highlight">Social Etiquettes</span>
-            </div>
-            
-            <ul style="list-style: none; margin-top: 20px;">
-                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #10B981; margin-right: 10px;"></i> <strong>Art & Craft:</strong> Clay modeling, coloring, and paper crafts to boost creativity.</li>
-                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #10B981; margin-right: 10px;"></i> <strong>Circle Time:</strong> Interactive sessions for language development.</li>
+            <h3 class="serif-font" style="color:var(--navy-blue);">Pre-Primary Wing</h3>
+            <p>Rooted in Play-Way methodologies. Focus on sensory learning, phonics, and motor skills.</p>
+            <br>
+            <h4 style="color:var(--gold);">Daily Activities</h4>
+            <ul style="list-style:none; margin-top:10px;">
+                <li><i class="fas fa-check" style="color:var(--navy-blue);"></i> Art & Craft (Clay modeling)</li>
+                <li><i class="fas fa-check" style="color:var(--navy-blue);"></i> Circle Time</li>
             </ul>
         </div>
 
         <div id="primary" class="tab-content">
-            <h3>Primary Wing</h3>
-            <p>As students step into Class I to IV, we gently transition them into structured learning while maintaining a stress-free environment. Heavy school bags and rote memorization are strictly discouraged.</p>
-            
-            <h4>Core Subjects:</h4>
-            <div class="subject-tags">
-                <span class="tag tag-highlight">English Language</span>
-                <span class="tag tag-highlight">Hindi (2nd Language)</span>
-                <span class="tag tag-highlight">Mathematics</span>
-                <span class="tag tag-highlight">Environmental Studies (EVS)</span>
-            </div>
-
-            <ul style="list-style: none; margin-top: 20px;">
-                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #10B981; margin-right: 10px;"></i> <strong>No Stress Exams:</strong> We follow Continuous and Comprehensive Evaluation (CCE).</li>
-                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #10B981; margin-right: 10px;"></i> <strong>Interactive Tests:</strong> Assessments via projects, oral quizzes, and smart-board activities.</li>
+            <h3 class="serif-font" style="color:var(--navy-blue);">Primary Wing</h3>
+            <p>Gentle transition to structured learning. No heavy bags, no rote memorization.</p>
+            <br>
+            <h4 style="color:var(--gold);">Core Focus</h4>
+            <ul style="list-style:none; margin-top:10px;">
+                <li><i class="fas fa-check" style="color:var(--navy-blue);"></i> English Speaking & Mathematics</li>
+                <li><i class="fas fa-check" style="color:var(--navy-blue);"></i> Interactive Smart Board Learning</li>
             </ul>
         </div>
     </section>
 
-    <section class="schedule-section reveal">
-        <h2 class="section-heading text-center">School Timings & Schedule</h2>
-        <div class="table-container">
-            <table class="smart-table">
-                <thead>
-                    <tr>
-                        <th>Wing / Class</th>
-                        <th>Reporting Time</th>
-                        <th>Dispersal Time</th>
-                        <th>Working Days</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Pre-Primary</strong> (Nursery, LKG, UKG)</td>
-                        <td>08:30 AM</td>
-                        <td>12:30 PM</td>
-                        <td>Monday to Friday</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Primary</strong> (Class I to IV)</td>
-                        <td>08:00 AM</td>
-                        <td>01:30 PM</td>
-                        <td>Monday to Saturday</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>RK Public School</h3>
-                <p>Building character and intellect since inception. A place where every child matters.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="academics.html">Academics</a></li>
-                    <li><a href="admissions.html">Admission Info</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> School Campus, Main Road, City</p>
-                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
     <script>
         function openTab(evt, tabName) {
-            const tabcontent = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            const tablinks = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
     </script>
 </body>
