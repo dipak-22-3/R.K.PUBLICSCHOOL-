@@ -3,198 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RK Public School | Excellence in Education</title>
-    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <title>RK Public School | Excellence</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <div class="top-bar">
-        <div class="top-info">
-            <span><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
-            <span style="margin-left:15px;"><i class="fas fa-envelope"></i> info@rkps.edu.in</span>
-        </div>
-        <div class="top-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-
-    <header class="navbar">
+    <header class="navbar" id="navbar">
         <a href="index.html" class="logo">
-            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
+            <i class="fas fa-book-reader gold-icon"></i>
             <span>RKPS</span>
         </a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
 
-        <nav>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="btn-primary" style="color:var(--bg-white)!important;">Contact</a></li>
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="login.html" class="btn-portal">Portal Login</a></li>
             </ul>
         </nav>
+
+        <div class="nav-actions">
+            <div class="lang-toggle">
+                <span class="active">EN</span> | <span>HI</span> | <span>BN</span>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
     </header>
 
-    <div class="news-ticker-container">
-        <div class="ticker-title">Updates</div>
-        <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-            📢 Admissions Open for Session 2026-27 | 🏆 Our school ranked top for early childhood development | 📅 Activity Week starts next Monday.
-        </marquee>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#about" class="nav-item">About Us</a></li>
+            <li><a href="#academics" class="nav-item">Academics</a></li>
+            <li><a href="#faculty" class="nav-item">Faculty Profile</a></li>
+            <li><a href="#admissions" class="nav-item">Admissions</a></li>
+            <li><a href="#gallery" class="nav-item">Gallery</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
+            <li><a href="login.html" class="btn-gold" style="display: block; text-align: center; margin-top: 20px;">Portal Login</a></li>
+        </ul>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to RK Public School</h1>
-            <p><span id="typed-text"></span></p>
-            <div class="hero-buttons">
-                <a href="admissions.html" class="btn-primary">Apply Now 2026-27</a>
-                <a href="about.html" class="btn-secondary">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="highlights reveal">
-        <div class="highlight-box">
-            <i class="fas fa-book-reader"></i>
-            <h3>Joyful Learning</h3>
-            <p>Stress-free curriculum designed for all-round early development.</p>
-        </div>
-        <div class="highlight-box">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h3>Caring Faculty</h3>
-            <p>Experienced teachers dedicated to your child's well-being.</p>
-        </div>
-        <div class="highlight-box">
-            <i class="fas fa-puzzle-piece"></i>
-            <h3>Activity Based</h3>
-            <p>Focus on play-way methods and cognitive growth.</p>
-        </div>
-    </section>
-
-    <section class="about-snippet reveal">
-        <div class="about-text">
-            <h2 class="section-heading">Nurturing the Future</h2>
-            <p>RK Public School is committed to providing a safe, engaging, and inclusive environment. From Nursery to Class IV, we believe in building a strong foundation without the burden of rote memorization.</p>
-            <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> Sprawling Campus with Play Area</li>
-                <li><i class="fas fa-check-circle"></i> Smart Classrooms & Activity Rooms</li>
-                <li><i class="fas fa-check-circle"></i> No-Stress Continuous Evaluation</li>
-            </ul>
-            <a href="about.html" class="btn-text">Read Our Story <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="about-image">
-            <img src="[https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600](https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600)" alt="Students at RKPS">
-        </div>
-    </section>
-
-    <section class="notice-board reveal">
-        <h2 class="section-heading text-center">Latest Updates & Notices</h2>
-        <div class="notice-container">
-            <div class="notice-card">
-                <div class="date-badge">
-                    <span class="day">10</span>
-                    <span class="month">Apr</span>
-                </div>
-                <div>
-                    <h3 style="color: var(--primary-color);">Admission Open</h3>
-                    <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 5px;">Registration forms are now available for Nursery to Class IV at the school office.</p>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="serif-font">Neev Mazboot.<br><span class="gold-text">Bhavishya Roshan.</span></h1>
+                
+                <div class="video-thumbnail" onclick="openVideoModal()">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800" alt="Happy Student">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
             </div>
-            <div class="notice-card">
-                <div class="date-badge">
-                    <span class="day">15</span>
-                    <span class="month">Apr</span>
+        </section>
+
+        <section id="about" class="highlights container">
+            <h2 class="section-title serif-font">Hamari Pehchan</h2>
+            <div class="grid-4">
+                <div class="box">
+                    <i class="fas fa-globe"></i>
+                    <h4>English Environment</h4>
                 </div>
-                <div>
-                    <h3 style="color: var(--primary-color);">Parent-Teacher Meet</h3>
-                    <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 5px;">First PTM of the academic year will be held this Saturday from 9 AM to 12 PM.</p>
+                <div class="box">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Smart Learning</h4>
+                </div>
+                <div class="box">
+                    <i class="fas fa-comments"></i>
+                    <h4>English Speaking</h4>
+                </div>
+                <div class="box">
+                    <i class="fas fa-praying-hands"></i>
+                    <h4>Sanskar</h4>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="stats-section reveal">
-        <div class="stat-box">
-            <i class="fas fa-smile-beam"></i>
-            <div><span class="counter" data-target="500">0</span><span>+</span></div>
-            <p>Happy Students</p>
+    <div class="sticky-bottom-bar">
+        <button class="btn-dark" onclick="window.location.href='#apply'">Apply Now</button>
+        <button class="btn-gold" onclick="window.location.href='#inquiry'">Admission Inquiry</button>
+        <div class="location-bar">
+            <i class="fas fa-globe"></i> RKPS, Parasia <i class="fas fa-map-marker-alt" style="float: right;"></i>
         </div>
-        <div class="stat-box">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <div><span class="counter" data-target="40">0</span><span>+</span></div>
-            <p>Caring Teachers</p>
-        </div>
-        <div class="stat-box">
-            <i class="fas fa-shapes"></i>
-            <div><span class="counter" data-target="15">0</span><span>+</span></div>
-            <p>Activity Rooms</p>
-        </div>
-    </section>
+    </div>
 
-    <section class="testimonials reveal">
-        <h2 class="section-heading text-center">What Parents Say</h2>
-        <div class="testimonial-container">
-            <div class="testi-card">
-                <i class="fas fa-quote-left quote-icon"></i>
-                <p>"The teachers at RKPS are incredibly supportive. My child looks forward to going to school every day because of the fun activities."</p>
-                <h4>- Mrs. Sharma, Parent</h4>
-            </div>
-            <div class="testi-card">
-                <i class="fas fa-quote-left quote-icon"></i>
-                <p>"Best infrastructure for young kids. I love their stress-free approach to learning without heavy school bags. Highly recommended."</p>
-                <h4>- Mr. Verma, Parent</h4>
-            </div>
+    <div class="video-modal" id="videoModal">
+        <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+        <div class="video-container">
+            <iframe id="youtubePlayer" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>RK Public School</h3>
-                <p>Building character and intellect since inception. A place where every child matters.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="academics.html">Academics</a></li>
-                    <li><a href="admissions.html">Admission Info</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> School Campus, Main Road, City</p>
-                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@rkps.edu.in</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <a href="[https://wa.me/919876543210](https://wa.me/919876543210)" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="[https://cdn.jsdelivr.net/npm/typed.js@2.0.12](https://cdn.jsdelivr.net/npm/typed.js@2.0.12)"></script>
     <script src="script.js"></script>
 </body>
 </html>
