@@ -3,162 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions | RK Public School</title>
-    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <title>Admissions | RKPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        .page-hero-adm { height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('[https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200](https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200)') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--bg-white); }
-        .page-hero-adm h1 { font-size: 3rem; color: var(--secondary-color); }
-        .process-section { padding: 80px 5%; background-color: var(--bg-white); }
-        .timeline { position: relative; max-width: 800px; margin: 40px auto 0; padding-left: 30px; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 15px; height: 100%; width: 4px; background-color: var(--accent-color); border-radius: 2px; }
-        .timeline-step { position: relative; margin-bottom: 40px; padding-left: 40px; }
-        .step-icon { position: absolute; top: 0; left: -15px; width: 40px; height: 40px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; box-shadow: 0 0 0 5px var(--bg-white); z-index: 1; }
-        .step-content { background-color: var(--bg-light); padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-top: 3px solid var(--primary-color); }
-        .step-content h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.3rem; }
-        .doc-list { list-style: none; margin-top: 15px; padding-left: 0; }
-        .doc-list li { margin-bottom: 8px; color: var(--text-dark); }
-        .doc-list i { color: #10B981; margin-right: 10px; }
-        .faq-section { padding: 80px 5%; background-color: var(--bg-light); }
-        .accordion-container { max-width: 800px; margin: 40px auto 0; }
-        .accordion-item { background-color: var(--bg-white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
-        .accordion-btn { width: 100%; text-align: left; padding: 20px; font-size: 1.1rem; font-weight: 500; color: var(--primary-color); background-color: transparent; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
-        .accordion-btn.active i { transform: rotate(180deg); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background-color: var(--bg-white); }
-        .accordion-text { padding: 0 20px 20px; color: var(--text-light); border-top: 1px solid var(--accent-color); margin-top: 10px; padding-top: 15px; }
-        .cta-banner { background-color: var(--primary-color); color: var(--bg-white); text-align: center; padding: 50px 5%; }
-        @media (max-width: 768px) { .page-hero-adm h1 { font-size: 2.2rem; } .timeline::before { left: 10px; } .step-icon { left: -10px; width: 30px; height: 30px; font-size: 1rem; } .timeline-step { padding-left: 30px; } }
+        .page-hero { padding: 80px 20px; background: var(--navy-blue); color: var(--white); text-align: center; }
+        .timeline { position: relative; max-width: 800px; margin: 40px auto; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 15px; top: 0; width: 4px; height: 100%; background: var(--gold-light); }
+        .timeline-step { position: relative; padding-left: 40px; margin-bottom: 40px; }
+        .step-icon { position: absolute; left: -20px; top: 0; width: 40px; height: 40px; background: var(--gold); color: var(--navy-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .step-content { background: var(--white); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 3px solid var(--navy-blue); }
+        
+        .accordion-item { background: var(--white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .accordion-btn { width: 100%; text-align: left; padding: 20px; font-weight: 600; color: var(--navy-blue); background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 20px; color: #555; }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
-            <span>RKPS</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-links" id="nav-links">
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-book-reader gold-icon"></i><span>RKPS</span></a>
+        <nav class="desktop-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="academics.html">Academics</a></li>
                 <li><a href="admissions.html" class="active">Admissions</a></li>
-                <li><a href="gallery.html">Gallery</a></li> 
-                <li><a href="contact.html" class="btn-primary" style="color:var(--bg-white)!important;">Contact</a></li>
+                <li><a href="login.html" class="btn-portal">Portal Login</a></li>
             </ul>
         </nav>
+        <div class="nav-actions">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
-    <section class="page-hero-adm">
-        <div>
-            <h1>Admissions 2026-27</h1>
-            <p>Join the RKPS family. Discover the steps to enroll your child for a bright future.</p>
-        </div>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="admissions.html" class="nav-item active">Admissions</a></li>
+            <li><a href="login.html" class="btn-gold" style="display:block; text-align:center;">Portal Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <h1 class="serif-font gold-text">Admissions 2026-27</h1>
+        <p>Begin your child's journey with RK Public School.</p>
     </section>
 
-    <section class="process-section reveal">
-        <h2 class="section-heading text-center">Step-by-Step Admission Process</h2>
+    <section class="container">
+        <h2 class="section-title serif-font">Admission Process</h2>
         <div class="timeline">
             <div class="timeline-step">
                 <div class="step-icon">1</div>
                 <div class="step-content">
-                    <h3>Registration & Form Filling</h3>
-                    <p>Parents can collect the registration form from the school reception or fill out the initial enquiry form online. The form must be completely filled with accurate details.</p>
+                    <h3 style="color:var(--navy-blue);">Registration</h3>
+                    <p>Collect the form from the reception or fill out the enquiry form online.</p>
                 </div>
             </div>
             <div class="timeline-step">
                 <div class="step-icon">2</div>
                 <div class="step-content">
-                    <h3>Interactive Session / Test</h3>
-                    <p>Based on the class applied for, an informal interactive session will be scheduled to understand the child's academic level.</p>
+                    <h3 style="color:var(--navy-blue);">Interactive Session</h3>
+                    <p>An informal meeting to understand the child's academic level.</p>
                 </div>
             </div>
             <div class="timeline-step">
                 <div class="step-icon">3</div>
                 <div class="step-content">
-                    <h3>Document Verification</h3>
-                    <ul class="doc-list">
-                        <li><i class="fas fa-check-circle"></i> Birth Certificate of the child</li>
-                        <li><i class="fas fa-check-circle"></i> Aadhaar Card (Parents & Child)</li>
-                        <li><i class="fas fa-check-circle"></i> 4 Passport size photographs</li>
-                        <li><i class="fas fa-check-circle"></i> Transfer Certificate (TC) from previous school</li>
-                    </ul>
+                    <h3 style="color:var(--navy-blue);">Document Verification</h3>
+                    <p>Submit Birth Certificate, Aadhaar Card, and Photos.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="faq-section reveal">
-        <h2 class="section-heading text-center">Frequently Asked Questions</h2>
-        <div class="accordion-container">
-            <div class="accordion-item">
-                <button class="accordion-btn">What is the age criteria for Nursery admission? <i class="fas fa-chevron-down"></i></button>
-                <div class="accordion-content">
-                    <div class="accordion-text">The child must be 3 years old as of 31st March of the academic year for which admission is sought.</div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-btn">Does the school provide transport facilities? <i class="fas fa-chevron-down"></i></button>
-                <div class="accordion-content">
-                    <div class="accordion-text">Yes, we provide safe and secure bus facilities covering a radius of 15 kms around the school.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-banner">
-        <h2 style="color: var(--secondary-color); margin-bottom: 15px;">Ready to join RK Public School?</h2>
-        <p style="margin-bottom: 20px;">Seats are limited. Reach out to us today to start the admission process.</p>
-        <a href="contact.html" class="btn-primary" style="background-color: var(--bg-white); color: var(--primary-color) !important;">Contact Us Now</a>
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>RK Public School</h3>
-                <p>Building character and intellect since inception.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="admissions.html">Admission Info</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> School Campus, Main Road, City</p>
-                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordions = document.querySelectorAll('.accordion-btn');
-            accordions.forEach(acc => {
-                acc.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const content = this.nextElementSibling;
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
