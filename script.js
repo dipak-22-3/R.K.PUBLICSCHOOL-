@@ -1,125 +1,62 @@
 /* =========================================
-   RK Public School - Master Script
+   RKPS MASTER SCRIPT (NAVY & GOLD THEME)
 ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. PAGE PRELOADER
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => { preloader.style.display = 'none'; }, 600); 
-        }, 800); 
-    }
 
-    // 2. SCROLL REVEAL
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealFunction = () => {
-        const windowHeight = window.innerHeight;
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('active');
-            }
-        });
-    }
-    window.addEventListener('scroll', revealFunction);
-    revealFunction();
-
-    // 3. TYPING EFFECT (Only if #typed-text exists on page)
-    if(document.getElementById('typed-text') && typeof Typed !== 'undefined'){
-        new Typed('#typed-text', {
-            strings: ["Joyful Early Learning.", "Stress-Free Education.", "Building Strong Fundamentals.", "Play, Learn, and Grow."],
-            typeSpeed: 60, backSpeed: 30, backDelay: 1500, loop: true
-        });
-    }
-
-    // 4. COUNTER ANIMATION
-    const counters = document.querySelectorAll('.counter');
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / 100; 
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
-    };
-
-    const statsSection = document.querySelector('.stats-section');
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target); 
-                }
-            });
-        }, { threshold: 0.5 });
-        observer.observe(statsSection);
-    }
-
-    // 5. MOBILE MENU LOGIC (Auto-adjust Fix)
+    // --- Hamburger Menu Logic ---
+    const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
+    const navLinks = document.querySelectorAll('.nav-item');
 
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
+    if (hamburger && mobileMenu) {
+        function toggleMenu() {
             mobileMenu.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu on link click
-        const links = document.querySelectorAll('.nav-links li a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Close menu on outside click
-        document.addEventListener('click', (event) => {
-            if (navLinks.classList.contains('active')) {
-                if (!navLinks.contains(event.target) && !mobileMenu.contains(event.target)) {
-                    navLinks.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                }
+            
+            // Animate Hamburger to 'X'
+            const bars = hamburger.querySelectorAll('span');
+            if(mobileMenu.classList.contains('active')){
+                bars[0].style.transform = 'translateY(9px) rotate(45deg)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'translateY(-9px) rotate(-45deg)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
             }
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
         });
     }
 
-    // 6. NAVBAR SHADOW & BACK-TO-TOP
-    const navbar = document.querySelector('.navbar');
-    const backToTopBtn = document.getElementById("backToTopBtn");
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            if(navbar) navbar.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
-        } else {
-            if(navbar) navbar.style.boxShadow = "none";
-        }
-
-        if (backToTopBtn) {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        }
-    });
 });
 
-function topFunction() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+// --- Video Lightbox Logic ---
+function openVideoModal() {
+    const videoModal = document.getElementById('videoModal');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    if (videoModal && youtubePlayer) {
+        youtubePlayer.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; 
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+function closeVideoModal() {
+    const videoModal = document.getElementById('videoModal');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    if (videoModal && youtubePlayer) {
+        videoModal.classList.remove('active');
+        youtubePlayer.src = ""; 
+        document.body.style.overflow = 'auto'; 
+    }
 }
