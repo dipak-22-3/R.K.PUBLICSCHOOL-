@@ -3,173 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | RK Public School</title>
-    <link rel="icon" href="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" type="image/png">
-    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <title>Contact Us | RKPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        .page-hero-contact { height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('[https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=1200](https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=1200)') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--bg-white); }
-        .page-hero-contact h1 { font-size: 3rem; color: var(--secondary-color); }
-        .contact-container { display: flex; padding: 80px 5%; gap: 50px; background-color: var(--bg-light); flex-wrap: wrap; }
-        .contact-info-section, .contact-form-section { flex: 1; min-width: 300px; background-color: var(--bg-white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .contact-info-section h2 { color: var(--primary-color); margin-bottom: 20px; }
-        .info-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
-        .info-item i { font-size: 24px; color: var(--secondary-color); margin-right: 15px; margin-top: 5px; }
-        .map-container { width: 100%; height: 250px; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 2px solid var(--accent-color); }
-        .map-container iframe { width: 100%; height: 100%; border: none; }
-        .contact-form-section h2 { color: var(--primary-color); margin-bottom: 30px; }
-        .form-group { position: relative; margin-bottom: 40px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px 0; font-size: 1rem; color: var(--text-dark); border: none; border-bottom: 2px solid var(--accent-color); outline: none; background: transparent; transition: border-color 0.3s; }
-        .form-group label { position: absolute; top: 10px; left: 0; color: var(--text-light); font-size: 1rem; pointer-events: none; transition: 0.3s ease all; }
-        .form-group input:focus ~ label, .form-group input:valid ~ label, .form-group textarea:focus ~ label, .form-group textarea:valid ~ label { top: -20px; font-size: 0.85rem; color: var(--secondary-color); font-weight: 500; }
-        .form-group input:focus, .form-group textarea:focus { border-bottom: 2px solid var(--secondary-color); }
-        .error-msg { color: #DC2626; font-size: 0.8rem; position: absolute; bottom: -20px; left: 0; display: none; }
-        .form-group.invalid input, .form-group.invalid textarea { border-bottom: 2px solid #DC2626; }
-        .form-group.invalid label { color: #DC2626; }
-        .form-group.invalid .error-msg { display: block; }
-        .submit-btn { width: 100%; padding: 15px; font-size: 1.1rem; border:none;}
-        .success-banner { display: none; background-color: #10B981; color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: 500; }
+        .page-hero { padding: 80px 20px; background: var(--navy-blue); color: var(--white); text-align: center; }
+        .contact-container { display: flex; padding: 60px 5%; gap: 50px; flex-wrap: wrap; }
+        .contact-info, .contact-form { flex: 1; min-width: 300px; background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .info-item { display: flex; align-items: center; margin-bottom: 25px; }
+        .info-item i { font-size: 24px; color: var(--gold); margin-right: 15px; }
+        .form-group { position: relative; margin-bottom: 30px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px 0; border: none; border-bottom: 2px solid #ddd; outline: none; background: transparent; font-size: 1rem; color: var(--navy-blue); }
+        .form-group label { position: absolute; top: 10px; left: 0; color: #888; pointer-events: none; transition: 0.3s; }
+        .form-group input:focus ~ label, .form-group input:valid ~ label, .form-group textarea:focus ~ label, .form-group textarea:valid ~ label { top: -20px; font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+        .form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--navy-blue); }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="[https://cdn-icons-png.flaticon.com/512/3067/3067254.png](https://cdn-icons-png.flaticon.com/512/3067/3067254.png)" alt="RKPS Logo"> 
-            <span>RKPS</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </div>
-        <nav>
-            <ul class="nav-links" id="nav-links">
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-book-reader gold-icon"></i><span>RKPS</span></a>
+        <nav class="desktop-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="btn-primary" style="color:var(--primary-color)!important; background-color: var(--bg-white);">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="login.html" class="btn-portal">Portal Login</a></li>
             </ul>
         </nav>
+        <div class="nav-actions">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
-    <section class="page-hero-contact">
-        <div>
-            <h1>Contact Us</h1>
-            <p>We'd love to hear from you. Get in touch for admissions or general inquiries.</p>
-        </div>
+    <section class="page-hero">
+        <h1 class="serif-font gold-text">Get in Touch</h1>
+        <p>We are here to help you.</p>
     </section>
 
-    <section class="contact-container reveal">
-        <div class="contact-info-section">
-            <h2>Get In Touch</h2>
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h4>School Address</h4>
-                    <p>RK Public School Campus,<br>City Name, State - 123456</p>
-                </div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <h4>Call Us</h4>
-                    <p>+91 98765 43210</p>
-                </div>
-            </div>
-            <div class="map-container">
-                <iframe src="[https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86107248384!2d85.06064047468641!3d25.608020764126286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5844f0bb6903%3A0x57ad3fac15656108!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86107248384!2d85.06064047468641!3d25.608020764126286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5844f0bb6903%3A0x57ad3fac15656108!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+    <section class="contact-container">
+        <div class="contact-info">
+            <h2 class="serif-font" style="color:var(--navy-blue); margin-bottom: 20px;">School Office</h2>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><p>RK Public School, Parasia</p></div>
+            <div class="info-item"><i class="fas fa-phone-alt"></i><p>+91 98765 43210</p></div>
+            <div class="info-item"><i class="fas fa-envelope"></i><p>admissions@rkps.edu.in</p></div>
         </div>
 
-        <div class="contact-form-section">
-            <h2>Send a Message</h2>
-            <div class="success-banner" id="successBanner">
-                <i class="fas fa-check-circle"></i> Thank you! Your message has been sent.
-            </div>
-            <form id="contactForm" novalidate>
-                <div class="form-group" id="nameGroup">
-                    <input type="text" id="fullName" required>
-                    <label for="fullName">Parent's Full Name</label>
-                    <span class="error-msg">Please enter your full name.</span>
+        <div class="contact-form">
+            <h2 class="serif-font" style="color:var(--navy-blue); margin-bottom: 20px;">Admission Enquiry</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" required>
+                    <label>Parent's Name</label>
                 </div>
-                <div class="form-group" id="emailGroup">
-                    <input type="email" id="emailAdd" required>
-                    <label for="emailAdd">Email Address</label>
-                    <span class="error-msg">Please enter a valid email address.</span>
+                <div class="form-group">
+                    <input type="tel" required>
+                    <label>Phone Number</label>
                 </div>
-                <div class="form-group" id="phoneGroup">
-                    <input type="tel" id="phoneNum" pattern="[0-9]{10}" required>
-                    <label for="phoneNum">Phone Number (10 digits)</label>
-                    <span class="error-msg">Please enter a valid 10-digit phone number.</span>
+                <div class="form-group">
+                    <textarea rows="3" required></textarea>
+                    <label>Message</label>
                 </div>
-                <div class="form-group" id="msgGroup">
-                    <textarea id="message" rows="4" required></textarea>
-                    <label for="message">Your Inquiry / Message</label>
-                    <span class="error-msg">Please type your message.</span>
-                </div>
-                <button type="submit" class="btn-primary submit-btn">Submit Inquiry</button>
+                <button type="submit" class="btn-portal" style="width: 100%; background: var(--navy-blue); color: var(--white); cursor: pointer; border: none; padding: 15px;">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>RK Public School</h3>
-                <p>Building character and intellect since inception.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="academics.html">Academics</a></li>
-                    <li><a href="admissions.html">Admission Info</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RK Public School. All Rights Reserved.</p>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            let isValid = true;
-
-            const validateField = (id, group, regex = null) => {
-                const input = document.getElementById(id);
-                const groupEl = document.getElementById(group);
-                if(input.value.trim() === '' || (regex && !input.value.match(regex))) {
-                    groupEl.classList.add('invalid');
-                    isValid = false;
-                } else {
-                    groupEl.classList.remove('invalid');
-                }
-            };
-
-            validateField('fullName', 'nameGroup');
-            validateField('emailAdd', 'emailGroup', /^[^ ]+@[^ ]+\.[a-z]{2,3}$/);
-            validateField('phoneNum', 'phoneGroup', /^\d{10}$/);
-            validateField('message', 'msgGroup');
-
-            if (isValid) {
-                const banner = document.getElementById('successBanner');
-                banner.style.display = 'block';
-                this.reset();
-                setTimeout(() => banner.style.display = 'none', 5000);
-            }
-        });
-
-        document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
-            input.addEventListener('input', function() {
-                this.parentElement.classList.remove('invalid');
-            });
-        });
-    </script>
 </body>
 </html>
