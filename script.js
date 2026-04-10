@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. PAGE PRELOADER LOGIC
+    // 1. PAGE PRELOADER
     const preloader = document.getElementById('preloader');
     if (preloader) {
         setTimeout(() => {
@@ -13,15 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800); 
     }
 
-    // 2. SCROLL REVEAL ANIMATION
+    // 2. SCROLL REVEAL
     const revealElements = document.querySelectorAll('.reveal');
     const revealFunction = () => {
         const windowHeight = window.innerHeight;
-        const revealPoint = 100; 
-
         revealElements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint) {
+            if (elementTop < windowHeight - 100) {
                 element.classList.add('active');
             }
         });
@@ -29,46 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealFunction);
     revealFunction();
 
-    // 3. TYPEWRITER EFFECT (Typed.js)
-    if(document.getElementById('typed-text')){
+    // 3. TYPING EFFECT (Only if #typed-text exists on page)
+    if(document.getElementById('typed-text') && typeof Typed !== 'undefined'){
         new Typed('#typed-text', {
             strings: ["Joyful Early Learning.", "Stress-Free Education.", "Building Strong Fundamentals.", "Play, Learn, and Grow."],
-            typeSpeed: 60,
-            backSpeed: 30,
-            backDelay: 1500,
-            loop: true
+            typeSpeed: 60, backSpeed: 30, backDelay: 1500, loop: true
         });
     }
 
-    // 4. BUTTON RIPPLE EFFECT (Material Design)
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            let x = e.clientX - e.target.getBoundingClientRect().left;
-            let y = e.clientY - e.target.getBoundingClientRect().top;
-            
-            let ripples = document.createElement('span');
-            ripples.style.left = x + 'px';
-            ripples.style.top = y + 'px';
-            ripples.classList.add('ripple');
-            this.appendChild(ripples);
-            
-            setTimeout(() => { ripples.remove() }, 600);
-        });
-    });
-
-    // 5. NUMBER COUNTER ANIMATION (For Stats Section)
+    // 4. COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
     const animateCounters = () => {
         counters.forEach(counter => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
                 const count = +counter.innerText;
-                const inc = target / 200; // Speed of counting
+                const inc = target / 100; 
 
                 if (count < target) {
                     counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
+                    setTimeout(updateCount, 20);
                 } else {
                     counter.innerText = target;
                 }
@@ -77,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Use Intersection Observer to run counter ONLY when scrolled into view
     const statsSection = document.querySelector('.stats-section');
     if (statsSection) {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -91,16 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(statsSection);
     }
 
-    // 6. MOBILE MENU LOGIC
+    // 5. MOBILE MENU LOGIC (Auto-adjust Fix)
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
 
     if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
+        mobileMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
+        // Close menu on link click
         const links = document.querySelectorAll('.nav-links li a');
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -109,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Close menu on outside click
         document.addEventListener('click', (event) => {
             if (navLinks.classList.contains('active')) {
                 if (!navLinks.contains(event.target) && !mobileMenu.contains(event.target)) {
@@ -119,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. NAVBAR SHADOW & BACK-TO-TOP LOGIC
+    // 6. NAVBAR SHADOW & BACK-TO-TOP
     const navbar = document.querySelector('.navbar');
     const backToTopBtn = document.getElementById("backToTopBtn");
     
@@ -131,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (backToTopBtn) {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            if (window.scrollY > 300) {
                 backToTopBtn.style.display = "block";
             } else {
                 backToTopBtn.style.display = "none";
